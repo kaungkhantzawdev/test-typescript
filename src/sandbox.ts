@@ -151,3 +151,53 @@ objSign = (rio: person ) => {
 }
 
 console.log(objSign({ name: 'hello', age: 30}))
+
+
+//Dom
+const aTag = document.querySelector('a')!;
+ 
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
+const toSelect = document.querySelector('#type') as HTMLSelectElement;
+const toFrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
+
+form.addEventListener('submit',(e: Event) => {
+    e.preventDefault();
+    console.log(toSelect.value, toFrom.value, details.value, amount.valueAsNumber)
+})
+
+//class
+
+// class Invoice{
+//     // client: string;
+//     // detail: string;
+//     // amount: number;
+
+//     // constructor( a: string, b:string, c:number){
+//     //     this.client = a
+//     //     this.detail = b
+//     //     this.amount = c
+//     // }
+
+//     //access modifier
+//     constructor(
+//         readonly client: string,
+//         private detail: string,
+//         public amount: number
+//     ){}
+
+//     format(){
+//         return `${this.client} owe $ ${this.amount} and detail is ${this.detail}`
+//     }
+// }
+
+import { Invoice } from "./classes/Invoice.js";
+const InvOne = new Invoice('hello', 'man', 300)
+const InvTwo = new Invoice('hihi', 'world', 400)
+
+let invoices: Invoice[] = [];
+invoices.push(InvOne)
+invoices.push(InvTwo)
+
+console.log(invoices)

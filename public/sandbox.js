@@ -1,4 +1,3 @@
-"use strict";
 let hello = "hello ";
 const hi = (x) => {
     return x + Math.PI;
@@ -95,3 +94,41 @@ objSign = (rio) => {
     return `${rio.name} and ${rio.age}`;
 };
 console.log(objSign({ name: 'hello', age: 30 }));
+//Dom
+const aTag = document.querySelector('a');
+const form = document.querySelector('.new-item-form');
+const toSelect = document.querySelector('#type');
+const toFrom = document.querySelector('#tofrom');
+const details = document.querySelector('#details');
+const amount = document.querySelector('#amount');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(toSelect.value, toFrom.value, details.value, amount.valueAsNumber);
+});
+//class
+// class Invoice{
+//     // client: string;
+//     // detail: string;
+//     // amount: number;
+//     // constructor( a: string, b:string, c:number){
+//     //     this.client = a
+//     //     this.detail = b
+//     //     this.amount = c
+//     // }
+//     //access modifier
+//     constructor(
+//         readonly client: string,
+//         private detail: string,
+//         public amount: number
+//     ){}
+//     format(){
+//         return `${this.client} owe $ ${this.amount} and detail is ${this.detail}`
+//     }
+// }
+import { Invoice } from "./classes/Invoice.js";
+const InvOne = new Invoice('hello', 'man', 300);
+const InvTwo = new Invoice('hihi', 'world', 400);
+let invoices = [];
+invoices.push(InvOne);
+invoices.push(InvTwo);
+console.log(invoices);
