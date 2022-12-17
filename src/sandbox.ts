@@ -201,3 +201,90 @@ invoices.push(InvOne)
 invoices.push(InvTwo)
 
 console.log(invoices)
+
+//interface
+
+interface Person {
+    name : string;
+    age : number;
+    speak( a: string ) :void;
+    spend( b: number ) :number;
+}
+
+const me: Person = {
+    name: "mg mg",
+    age: 20,
+    speak( text: string ) : void {
+        console.log(text)
+    },
+    spend( amount: number ) :number {
+        console.log( amount )
+        return amount
+    }
+
+}
+
+console.log(me)
+
+
+//class inplement interface
+
+import { HasFormatter } from "./interfaces/HasFormatter.js";
+import { Payment } from "./classes/Payment.js";
+let docOne : HasFormatter;
+let docTwo : HasFormatter;
+docOne = new Invoice('rio-one', 'web dev', 300)
+docTwo = new Payment('rio-two', 'backend dev', 300)
+
+let doc : HasFormatter[] = [];
+doc.push(docOne)
+doc.push(docTwo)
+
+console.log(doc)
+
+
+//generics
+
+const addUID = <T>(obj : T ) => {
+    let uid = Math.floor( Math.random() * 100)
+    return { ...obj, uid}
+}
+
+let addOne = addUID( {name: 'generics', age: 50})
+console.log(addOne.name)
+
+
+interface Resource<T>{
+    uid: number,
+    data: T
+}
+
+const addTwo: Resource<Object> ={
+    uid: 2,
+    data: { name: 'add Two', age: 40}
+}
+
+const addThree: Resource<string[]> = {
+    uid: 4,
+    data: ['hihi','hlkjf']
+}
+
+console.log(addTwo, addThree)
+
+
+
+// enums
+enum ResourceType { Book, Author }
+
+const addfour = {
+    uid: 4,
+    reource: ResourceType.Author,
+    data: ['hihi', 'hlkjf']
+};
+
+//tuples
+
+let defineData : [ string, number ]
+
+defineData = ['hello', 2]
+console.log(defineData)

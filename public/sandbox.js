@@ -132,3 +132,55 @@ let invoices = [];
 invoices.push(InvOne);
 invoices.push(InvTwo);
 console.log(invoices);
+const me = {
+    name: "mg mg",
+    age: 20,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log(amount);
+        return amount;
+    }
+};
+console.log(me);
+import { Payment } from "./classes/Payment.js";
+let docOne;
+let docTwo;
+docOne = new Invoice('rio-one', 'web dev', 300);
+docTwo = new Payment('rio-two', 'backend dev', 300);
+let doc = [];
+doc.push(docOne);
+doc.push(docTwo);
+console.log(doc);
+//generics
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let addOne = addUID({ name: 'generics', age: 50 });
+console.log(addOne.name);
+const addTwo = {
+    uid: 2,
+    data: { name: 'add Two', age: 40 }
+};
+const addThree = {
+    uid: 4,
+    data: ['hihi', 'hlkjf']
+};
+console.log(addTwo, addThree);
+// enums
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["Book"] = 0] = "Book";
+    ResourceType[ResourceType["Author"] = 1] = "Author";
+})(ResourceType || (ResourceType = {}));
+const addfour = {
+    uid: 4,
+    reource: ResourceType.Author,
+    data: ['hihi', 'hlkjf']
+};
+//tuples
+let defineData;
+defineData = ['hello', 2];
+console.log(defineData);

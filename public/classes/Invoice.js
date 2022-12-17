@@ -14,6 +14,6 @@ export class Invoice {
         this.amount = amount;
     }
     format() {
-        return `${this.client} owe $ ${this.amount} and detail is ${this.detail}`;
+        return `${this.client} is owed $ ${this.amount} and he is working at ${this.detail} ( invoice )`;
     }
 }
